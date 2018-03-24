@@ -23,3 +23,4 @@ viewLayoutParams.x = ravenView.getGap();
 viewLayoutParams.y = ravenView.getGap();
 windowManager.addView(specialView, viewLayoutParams);
 ```
+* Requires android.permission.SYSTEM_ALERT_WINDOW permission
