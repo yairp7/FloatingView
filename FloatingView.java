@@ -8,8 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.kricherer.raven.utils.ScreenUtils;
-
 /**
  * Created by YP on 1/8/2016.
  */
@@ -68,7 +66,7 @@ public abstract class FloatingView extends android.support.v7.widget.AppCompatIm
         public DraggableOnTouchListener(WindowManager windowManager, WindowManager.LayoutParams layoutParams) {
             mWindowManager = windowManager;
             mLayoutParams = layoutParams;
-            mScreenSize = ScreenUtils.getScreenSize(getResources());
+            mScreenSize = getScreenSize(getResources());
         }
 
         @Override
@@ -136,4 +134,14 @@ public abstract class FloatingView extends android.support.v7.widget.AppCompatIm
     protected abstract void onViewMoving(int x, int y);
 
     protected abstract void onViewMoveCompleted(int x, int y);
+	
+	public static Point getScreenSize(Resources resources) {
+        Point size = new Point();
+
+        DisplayMetrics display = resources.getDisplayMetrics();
+        size.x = display.widthPixels;
+        size.y = display.heightPixels;
+
+        return size;
+    }
 }
